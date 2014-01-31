@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tic Tac Toe</string>
+    <string name="action_settings">Settings</string>
+    <string name="versus_computer">VS. CPU</string>
+    <string name="versus_player">VS. Player</string>
+    <string name="game_option">Select A Game Option</string>
+    <string name="title_activity_game_screen">GameScreenActivity</string>
+    <string name="hello_world">Hello world!</string>
+
+</resources>
