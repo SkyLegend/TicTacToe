@@ -19,6 +19,21 @@ public class GameScreenActivity extends Activity {
     private Boolean[][] gameGrid;
     private HashMap<Integer, ArrayList<int[]>> gridPatterns;
     private TextView playerOneScore;
+    private TextView playerTwoScore;
+    //Top Row
+    private Button topLeft;
+    private Button topCenter;
+    private Button topRight;
+
+    //Center Row
+    private Button centerLeft;
+    private Button center;
+    private Button centerRight;
+
+    //Bottom Row
+    private Button bottomLeft;
+    private Button bottomCenter;
+    private Button bottomRight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,19 +41,19 @@ public class GameScreenActivity extends Activity {
         setContentView(R.layout.activity_game_screen);
 
         //Top Row
-        final Button topLeft = (Button) findViewById(R.id.btnTopLeft);
-        final Button topCenter = (Button) findViewById(R.id.btnTopCenter);
-        final Button topRight = (Button) findViewById(R.id.btnTopRight);
+        topLeft = (Button) findViewById(R.id.btnTopLeft);
+        topCenter = (Button) findViewById(R.id.btnTopCenter);
+        topRight = (Button) findViewById(R.id.btnTopRight);
 
         //Center Row
-        final Button centerLeft = (Button) findViewById(R.id.btnCenterLeft);
-        final Button center = (Button) findViewById(R.id.btnCenter);
-        final Button centerRight = (Button) findViewById(R.id.btnCenterRight);
+        centerLeft = (Button) findViewById(R.id.btnCenterLeft);
+        center = (Button) findViewById(R.id.btnCenter);
+        centerRight = (Button) findViewById(R.id.btnCenterRight);
 
         //Bottom Row
-        final Button bottomLeft = (Button) findViewById(R.id.btnBottomLeft);
-        final Button bottomCenter = (Button) findViewById(R.id.btnBottomCenter);
-        final Button bottomRight = (Button) findViewById(R.id.btnBottomRight);
+        bottomLeft = (Button) findViewById(R.id.btnBottomLeft);
+        bottomCenter = (Button) findViewById(R.id.btnBottomCenter);
+        bottomRight = (Button) findViewById(R.id.btnBottomRight);
 
         topLeft.setOnClickListener(gameClicks);
         topCenter.setOnClickListener(gameClicks);
@@ -54,6 +69,8 @@ public class GameScreenActivity extends Activity {
 
         playerOneScore = (TextView) findViewById(R.id.playerOneScore);
         playerOneScore.setText(Integer.toString(mPlayerOneScore));
+        playerTwoScore = (TextView) findViewById(R.id.playerTwoScore);
+        playerTwoScore.setText(Integer.toString(mPlayerTwoScore));
 
         gameGrid = new Boolean[3][3];
     }
@@ -100,17 +117,20 @@ public class GameScreenActivity extends Activity {
                 gameGrid[row][column] = true;
                 tempButton.setTextColor(Color.RED);
                 tempButton.setText("X");
+                determineVictory(partitionNumber);
                 playerOneTurnMarker = false;
                 playerTwoTurnMarker = true;
-                determineVictory(row, partitionNumber);
             } else{
                 gameGrid[row][column] = false;
                 tempButton.setTextColor(Color.BLUE);
                 tempButton.setText("O");
+                determineVictory(partitionNumber);
                 playerTwoTurnMarker = false;
                 playerOneTurnMarker = true;
-                determineVictory(row, partitionNumber);
             }
+        }
+        if(drawGame()){
+            gameReset();
         }
     }
 
@@ -127,26 +147,42 @@ public class GameScreenActivity extends Activity {
      * 8 null
      * 9 null
      */
-    private void determineVictory(int row, int patternNum){
+    private void determineVictory(int patternNum){
         ArrayList<int[]> tempPatterns;
         tempPatterns = gridPatterns.get(patternNum);
         //Check Patterns
-        if(tempPatterns != null){
-            for(int i = 0; i < tempPatterns.size() - 1; i++){
-                int[] temp = tempPatterns.get(i);
-                if((gameGrid[row][temp[0]] != null && gameGrid[row][temp[0]])
-                        && (gameGrid[row][temp[1]] != null && gameGrid[row][temp[1]])
-                        && (gameGrid[row][temp[2]] != null && gameGrid[row][temp[2]])){
-                    if(playerOneTurnMarker){
-                        playerOneScore.setText(++mPlayerOneScore);
-                    } else{
-                        mPlayerTwoScore++;
-                    }
-                }
+        for(int i = 0; i < tempPatterns.size(); i++){
+            int[] temp = tempPatterns.get(i);
+            if((gameGrid[temp[0]][temp[1]] != null && gameGrid[temp[0]][temp[1]])
+                    && (gameGrid[temp[2]][temp[3]] != null && gameGrid[temp[2]][temp[3]])
+                    && (gameGrid[temp[4]][temp[5]] != null && gameGrid[temp[4]][temp[5]])){
+                playerOneScore.setText(Integer.toString(++mPlayerOneScore));
+                gameReset();
+            } else if((gameGrid[temp[0]][temp[1]] != null && !(gameGrid[temp[0]][temp[1]]))
+                    && (gameGrid[temp[2]][temp[3]] != null && !(gameGrid[temp[2]][temp[3]]))
+                    && (gameGrid[temp[4]][temp[5]] != null && !(gameGrid[temp[4]][temp[5]]))){
+                playerTwoScore.setText(Integer.toString(++mPlayerTwoScore));
+                gameReset();
             }
         }
 
+
         //Check Current Player
+    }
+
+    private void gameReset(){
+        topLeft.setText("");
+        topCenter.setText("");
+        topRight.setText("");
+        centerLeft.setText("");
+        center.setText("");
+        centerRight.setText("");
+        bottomLeft.setText("");
+        bottomCenter.setText("");
+        bottomRight.setText("");
+
+        gameGrid = new Boolean[3][3];
+
     }
 
     private void initializeVictoryPatterns(){
@@ -156,35 +192,82 @@ public class GameScreenActivity extends Activity {
         ArrayList<int[]> oneRow = new ArrayList<int[]>();
         ArrayList<int[]> twoRow = new ArrayList<int[]>();
         ArrayList<int[]> threeRow = new ArrayList<int[]>();
+        ArrayList<int[]> fourRow = new ArrayList<int[]>();
+        ArrayList<int[]> fiveRow = new ArrayList<int[]>();
         ArrayList<int[]> sixRow = new ArrayList<int[]>();
+        ArrayList<int[]> sevenRow = new ArrayList<int[]>();
+        ArrayList<int[]> eightRow = new ArrayList<int[]>();
 
-        int[] zeroPattern = {0, 1, 2};
-        int[] zeroPattern2 = {0, 3, 6};
-        int[] zeroPattern3 = {0, 4, 6};
-        int[] onePattern = {1, 4, 7};
-        int[] twoPattern = {2, 5, 8};
-        int[] twoPattern2 = {2, 4, 6};
-        int[] threePattern = {3, 4, 5};
-        int[] sixPattern = {6, 7, 8};
+        int[] zeroPattern = {0, 0, 0, 1, 0, 2};
+        int[] zeroPattern2 = {0, 0, 1, 0, 2, 0};
+        int[] zeroPattern3 = {0, 0, 1, 1, 2, 2};
+        int[] onePattern = {0, 1, 1, 1, 2, 1};
+        int[] onePattern2 = {0, 1, 0, 0, 0, 2};
+        int[] twoPattern = {0, 2, 1, 2, 2, 2};
+        int[] twoPattern2 = {0, 2, 1, 1, 2, 0};
+        int[] twoPattern3 = {0, 2, 0, 1, 0, 0};
+        int[] threePattern = {1, 0, 1, 1, 1, 2};
+        int[] threePattern2 = {1, 0, 0, 0, 2, 0};
+        int[] fourPattern ={1, 1, 1, 0, 1, 2};
+        int[] fourPattern2 ={1, 1, 0, 1, 2, 1};
+        int[] fourPattern3 ={1, 1, 0, 2, 2, 0};
+        int[] fourPattern4 ={1, 1, 0, 0, 2, 2};
+        int[] fivePattern ={1, 2, 1, 1, 1, 0};
+        int[] fivePattern2 ={1, 2, 0, 2, 2, 2};
+        int[] sixPattern = {2, 0, 2, 1, 2, 2};
+        int[] sixPattern2 = {2, 0, 1, 0, 0, 0};
+        int[] sixPattern3 = {2, 0, 1, 1, 0, 2};
+        int[] sevenPattern = {2, 1, 2, 0, 2, 2};
+        int[] sevenPattern2 = {2, 1, 1, 1, 0, 1};
+        int[] eightPattern = {2, 2, 2, 1, 2, 0};
+        int[] eightPattern2 = {2, 2, 1, 2, 0, 2};
+        int[] eightPattern3 = {2, 2, 1, 1, 0, 0};
 
         zeroRow.add(zeroPattern);
         zeroRow.add(zeroPattern2);
         zeroRow.add(zeroPattern3);
         oneRow.add(onePattern);
+        oneRow.add(onePattern2);
         twoRow.add(twoPattern);
         twoRow.add(twoPattern2);
+        twoRow.add(twoPattern3);
         threeRow.add(threePattern);
+        threeRow.add(threePattern2);
+        fourRow.add(fourPattern);
+        fourRow.add(fourPattern2);
+        fourRow.add(fourPattern3);
+        fourRow.add(fourPattern4);
+        fiveRow.add(fivePattern);
+        fiveRow.add(fivePattern2);
         sixRow.add(sixPattern);
+        sixRow.add(sixPattern2);
+        sixRow.add(sixPattern3);
+        sevenRow.add(sevenPattern);
+        sevenRow.add(sevenPattern2);
+        eightRow.add(eightPattern);
+        eightRow.add(eightPattern2);
+        eightRow.add(eightPattern3);
 
         gridPatterns.put(0, zeroRow);
         gridPatterns.put(1, oneRow);
         gridPatterns.put(2, twoRow);
         gridPatterns.put(3, threeRow);
-        gridPatterns.put(4, null);
-        gridPatterns.put(5, null);
+        gridPatterns.put(4, fourRow);
+        gridPatterns.put(5, fiveRow);
         gridPatterns.put(6, sixRow);
-        gridPatterns.put(7, null);
-        gridPatterns.put(8, null);
+        gridPatterns.put(7, sevenRow);
+        gridPatterns.put(8, eightRow);
+    }
+
+    private boolean drawGame(){
+        for(int i = 0; i < gameGrid.length; i++){
+            for(int j = 0; j < gameGrid[i].length; j++){
+                if(gameGrid[i][j] == null){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**

@@ -14,113 +14,186 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/gameGrid">
+        android:id="@+id/gameGrid"
+        android:background="@drawable/board_background"
+        android:layout_margin="0dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/buttonRowTwo"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/buttonRowOne">
+            android:id="@+id/buttonRowOne"
+            android:gravity="center">
 
             <Button
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="80dp"
+                android:layout_height="86dp"
                 android:id="@+id/btnTopLeft"
-                android:layout_gravity="center_horizontal|top"
                 android:visibility="visible"
-                android:layout_margin="3dp"
-                android:textSize="85dp" />
+                android:textSize="65dp"
+                android:background="@drawable/button_background"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="20dp"
+                android:layout_gravity="center" />
 
             <Button
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="80dp"
+                android:layout_height="86dp"
                 android:id="@+id/btnTopCenter"
-                android:layout_gravity="center_horizontal|top"
+                android:layout_gravity="center"
                 android:visibility="visible"
-                android:layout_margin="3dp"
-                android:textSize="85dp" />
+                android:textSize="65dp"
+                android:background="@drawable/button_background"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="10.5dp" />
 
             <Button
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="80dp"
+                android:layout_height="86dp"
                 android:id="@+id/btnTopRight"
-                android:layout_gravity="center_horizontal|top"
+                android:layout_gravity="center"
                 android:visibility="visible"
                 android:textColor="#000000"
-                android:layout_margin="3dp"
-                android:textSize="85dp" />
+                android:textSize="65dp"
+                android:background="@drawable/button_background"
+                android:layout_marginTop="13dp"
+                android:layout_marginLeft="10.25dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/buttonRowThree"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/buttonRowTwo">
+            android:id="@+id/buttonRowTwo"
+            android:gravity="center">
 
             <Button
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="80dp"
+                android:layout_height="86dp"
                 android:id="@+id/btnCenterLeft"
-                android:layout_gravity="center_horizontal|top"
-                android:layout_margin="3dp"
-                android:textSize="85dp" />
+                android:layout_gravity="center"
+                android:textSize="65dp"
+                android:background="@drawable/button_background"
+                android:visibility="visible"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="20dp" />
 
             <Button
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="80dp"
+                android:layout_height="86dp"
                 android:id="@+id/btnCenter"
-                android:layout_gravity="center_horizontal|top"
-                android:layout_margin="3dp"
-                android:textSize="85dp" />
+                android:layout_gravity="center"
+                android:textSize="65dp"
+                android:background="@drawable/button_background"
+                android:visibility="visible"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="10.5dp" />
 
             <Button
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="80dp"
+                android:layout_height="86dp"
                 android:id="@+id/btnCenterRight"
-                android:layout_gravity="center_horizontal|top"
-                android:layout_margin="3dp"
-                android:textSize="85dp" />
+                android:layout_gravity="center"
+                android:textSize="65dp"
+                android:background="@drawable/button_background"
+                android:visibility="visible"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="10.25dp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/buttonRowThree">
+            android:id="@+id/buttonRowThree"
+            android:gravity="center">
 
             <Button
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="80dp"
+                android:layout_height="86dp"
                 android:id="@+id/btnBottomLeft"
-                android:layout_gravity="center_horizontal|top"
-                android:layout_margin="3dp"
-                android:textSize="85dp" />
+                android:layout_gravity="center"
+                android:textSize="65dp"
+                android:background="@drawable/button_background"
+                android:visibility="visible"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="20dp" />
 
             <Button
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="80dp"
+                android:layout_height="86dp"
                 android:id="@+id/btnBottomCenter"
-                android:layout_gravity="center_horizontal|top"
-                android:layout_margin="3dp"
-                android:textSize="85dp" />
+                android:layout_gravity="center"
+                android:textSize="65dp"
+                android:background="@drawable/button_background"
+                android:visibility="visible"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="10.5dp" />
 
             <Button
-                android:layout_width="115dp"
-                android:layout_height="115dp"
+                android:layout_width="80dp"
+                android:layout_height="86dp"
                 android:id="@+id/btnBottomRight"
-                android:layout_gravity="center_horizontal|top"
-                android:layout_margin="3dp"
-                android:textSize="85dp" />
+                android:layout_gravity="center"
+                android:textSize="65dp"
+                android:background="@drawable/button_background"
+                android:visibility="visible"
+                android:layout_marginTop="4dp"
+                android:layout_marginLeft="10.25dp" />
         </LinearLayout>
     </LinearLayout>
 
-    <TextView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/playerOneScore"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true" />
+        android:layout_centerHorizontal="true">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/playerOneScoreFrame"
+            android:layout_marginRight="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_one"
+                android:id="@+id/playerOneScoreText" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/playerOneScore"
+                android:text="@string/initial_score"
+                android:layout_below="@+id/playerOneScoreText"
+                android:layout_alignLeft="@+id/playerOneScoreText"
+                android:gravity="center_horizontal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/playerTwoScoreFrame"
+            android:layout_marginLeft="25dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/player_two"
+                android:id="@+id/playerTwoScoreText"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:singleLine="false" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/initial_score"
+                android:id="@+id/playerTwoScore"
+                android:layout_above="@+id/gameGrid"
+                android:layout_centerHorizontal="true"
+                android:textAlignment="center"
+                android:gravity="center_horizontal" />
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>
