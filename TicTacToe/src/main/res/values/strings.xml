@@ -8,8 +8,8 @@
     <string name="game_option">Select A Game Option</string>
     <string name="title_activity_game_screen">GameScreenActivity</string>
     <string name="hello_world">Hello world!</string>
-    <string name="player_one">Player One:</string>
-    <string name="player_two">Player Two:</string>
+    <string name="player_one">Player One</string>
+    <string name="player_two">Player Two</string>
     <string name="player_cpu">Computer:</string>
     <string name="initial_score">0</string>
 

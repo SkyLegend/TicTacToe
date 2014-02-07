@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -35,6 +36,9 @@ public class GameScreenActivity extends Activity {
     private Button bottomCenter;
     private Button bottomRight;
 
+    private ImageView playerOneMarker;
+    private ImageView playerTwoMarker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +59,9 @@ public class GameScreenActivity extends Activity {
         bottomCenter = (Button) findViewById(R.id.btnBottomCenter);
         bottomRight = (Button) findViewById(R.id.btnBottomRight);
 
+        playerOneMarker = (ImageView) findViewById(R.id.playerOneTurn);
+        playerTwoMarker = (ImageView) findViewById(R.id.playerTwoTurn);
+
         topLeft.setOnClickListener(gameClicks);
         topCenter.setOnClickListener(gameClicks);
         topRight.setOnClickListener(gameClicks);
@@ -64,6 +71,7 @@ public class GameScreenActivity extends Activity {
         bottomLeft.setOnClickListener(gameClicks);
         bottomCenter.setOnClickListener(gameClicks);
         bottomRight.setOnClickListener(gameClicks);
+
 
         initializeVictoryPatterns();
 
@@ -117,16 +125,22 @@ public class GameScreenActivity extends Activity {
                 gameGrid[row][column] = true;
                 tempButton.setTextColor(Color.RED);
                 tempButton.setText("X");
-                determineVictory(partitionNumber);
-                playerOneTurnMarker = false;
-                playerTwoTurnMarker = true;
+                if(!(determineVictory(partitionNumber))){
+                    playerOneTurnMarker = false;
+                    playerOneMarker.setImageResource(R.drawable.neutral_turn);
+                    playerTwoTurnMarker = true;
+                    playerTwoMarker.setImageResource(R.drawable.blue_turn);
+                }
             } else{
                 gameGrid[row][column] = false;
                 tempButton.setTextColor(Color.BLUE);
                 tempButton.setText("O");
-                determineVictory(partitionNumber);
-                playerTwoTurnMarker = false;
-                playerOneTurnMarker = true;
+                if(!(determineVictory(partitionNumber))){
+                    playerTwoTurnMarker = false;
+                    playerTwoMarker.setImageResource(R.drawable.neutral_turn);
+                    playerOneTurnMarker = true;
+                    playerOneMarker.setImageResource(R.drawable.red_turn);
+                }
             }
         }
         if(drawGame()){
@@ -147,7 +161,7 @@ public class GameScreenActivity extends Activity {
      * 8 null
      * 9 null
      */
-    private void determineVictory(int patternNum){
+    private boolean determineVictory(int patternNum){
         ArrayList<int[]> tempPatterns;
         tempPatterns = gridPatterns.get(patternNum);
         //Check Patterns
@@ -158,13 +172,16 @@ public class GameScreenActivity extends Activity {
                     && (gameGrid[temp[4]][temp[5]] != null && gameGrid[temp[4]][temp[5]])){
                 playerOneScore.setText(Integer.toString(++mPlayerOneScore));
                 gameReset();
+                return true;
             } else if((gameGrid[temp[0]][temp[1]] != null && !(gameGrid[temp[0]][temp[1]]))
                     && (gameGrid[temp[2]][temp[3]] != null && !(gameGrid[temp[2]][temp[3]]))
                     && (gameGrid[temp[4]][temp[5]] != null && !(gameGrid[temp[4]][temp[5]]))){
                 playerTwoScore.setText(Integer.toString(++mPlayerTwoScore));
                 gameReset();
+                return true;
             }
         }
+        return false;
 
 
         //Check Current Player

@@ -6,7 +6,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".GameScreenActivity">
+    tools:context=".GameScreenActivity"
+    android:background="@drawable/grass2_background">
 
     <LinearLayout
         android:orientation="vertical"
@@ -15,7 +16,7 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/gameGrid"
-        android:background="@drawable/board_background"
+        android:background="@drawable/sandbox"
         android:layout_margin="0dp">
 
         <LinearLayout
@@ -26,37 +27,43 @@
 
             <Button
                 android:layout_width="80dp"
-                android:layout_height="86dp"
+                android:layout_height="87dp"
                 android:id="@+id/btnTopLeft"
                 android:visibility="visible"
                 android:textSize="65dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/button_background_invis"
                 android:layout_marginTop="13dp"
-                android:layout_marginLeft="20dp"
-                android:layout_gravity="center" />
+                android:layout_marginLeft="20.5dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp" />
 
             <Button
                 android:layout_width="80dp"
-                android:layout_height="86dp"
+                android:layout_height="87dp"
                 android:id="@+id/btnTopCenter"
                 android:layout_gravity="center"
                 android:visibility="visible"
                 android:textSize="65dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/button_background_invis"
                 android:layout_marginTop="13dp"
-                android:layout_marginLeft="10.5dp" />
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp" />
 
             <Button
                 android:layout_width="80dp"
-                android:layout_height="86dp"
+                android:layout_height="87dp"
                 android:id="@+id/btnTopRight"
                 android:layout_gravity="center"
                 android:visibility="visible"
                 android:textColor="#000000"
                 android:textSize="65dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/button_background_invis"
                 android:layout_marginTop="13dp"
-                android:layout_marginLeft="10.25dp" />
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,36 +74,42 @@
 
             <Button
                 android:layout_width="80dp"
-                android:layout_height="86dp"
+                android:layout_height="82dp"
                 android:id="@+id/btnCenterLeft"
                 android:layout_gravity="center"
                 android:textSize="65dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/button_background_invis"
                 android:visibility="visible"
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="20dp" />
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="20.5dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp" />
 
             <Button
                 android:layout_width="80dp"
-                android:layout_height="86dp"
+                android:layout_height="82dp"
                 android:id="@+id/btnCenter"
                 android:layout_gravity="center"
                 android:textSize="65dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/button_background_invis"
                 android:visibility="visible"
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="10.5dp" />
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp" />
 
             <Button
                 android:layout_width="80dp"
-                android:layout_height="86dp"
+                android:layout_height="82dp"
                 android:id="@+id/btnCenterRight"
                 android:layout_gravity="center"
                 android:textSize="65dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/button_background_invis"
                 android:visibility="visible"
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="10.25dp" />
+                android:layout_marginTop="7dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -107,36 +120,42 @@
 
             <Button
                 android:layout_width="80dp"
-                android:layout_height="86dp"
+                android:layout_height="80dp"
                 android:id="@+id/btnBottomLeft"
                 android:layout_gravity="center"
                 android:textSize="65dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/button_background_invis"
                 android:visibility="visible"
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="20dp" />
+                android:layout_marginTop="7.5dp"
+                android:layout_marginLeft="20.5dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp" />
 
             <Button
                 android:layout_width="80dp"
-                android:layout_height="86dp"
+                android:layout_height="80dp"
                 android:id="@+id/btnBottomCenter"
                 android:layout_gravity="center"
                 android:textSize="65dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/button_background_invis"
                 android:visibility="visible"
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="10.5dp" />
+                android:layout_marginTop="7.5dp"
+                android:layout_marginLeft="11dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp" />
 
             <Button
                 android:layout_width="80dp"
-                android:layout_height="86dp"
+                android:layout_height="80dp"
                 android:id="@+id/btnBottomRight"
                 android:layout_gravity="center"
                 android:textSize="65dp"
-                android:background="@drawable/button_background"
+                android:background="@drawable/button_background_invis"
                 android:visibility="visible"
-                android:layout_marginTop="4dp"
-                android:layout_marginLeft="10.25dp" />
+                android:layout_marginTop="7.5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginBottom="0dp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -146,27 +165,40 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/playerOneTurn"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/red_turn" />
+
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/playerOneScoreFrame"
-            android:layout_marginRight="25dp">
+            android:layout_marginRight="25dp"
+            android:background="@drawable/score_background">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/player_one"
-                android:id="@+id/playerOneScoreText" />
+                android:id="@+id/playerOneScoreText"
+                android:textAlignment="center"
+                android:layout_marginTop="9dp"
+                android:gravity="center_horizontal" />
 
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/playerOneScore"
                 android:text="@string/initial_score"
                 android:layout_below="@+id/playerOneScoreText"
                 android:layout_alignLeft="@+id/playerOneScoreText"
-                android:gravity="center_horizontal" />
+                android:gravity="center_horizontal"
+                android:textAlignment="center" />
         </LinearLayout>
 
         <LinearLayout
@@ -174,16 +206,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/playerTwoScoreFrame"
-            android:layout_marginLeft="25dp">
+            android:layout_marginLeft="25dp"
+            android:background="@drawable/score_background">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/player_two"
                 android:id="@+id/playerTwoScoreText"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                android:singleLine="false" />
+                android:singleLine="false"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="9dp" />
 
             <TextView
                 android:layout_width="fill_parent"
@@ -195,5 +230,15 @@
                 android:textAlignment="center"
                 android:gravity="center_horizontal" />
         </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/playerTwoTurn"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="7dp"
+            android:src="@drawable/neutral_turn" />
+
     </LinearLayout>
+
 </RelativeLayout>
