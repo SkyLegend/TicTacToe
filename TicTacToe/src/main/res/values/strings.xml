@@ -12,5 +12,11 @@
     <string name="player_two">Player Two</string>
     <string name="player_cpu">Computer:</string>
     <string name="initial_score">0</string>
+    <string name="ok">OK</string>
+    <string name="cancel">CANCEL</string>
+    <string name="choice_message">Would you like to play again?</string>
+    <string name="choice_title">Play Again?</string>
+    <string name="final_score_title">Final Score</string>
+    <string name="final_score_message">Player One: %1$d  \nPlayer Two: %2$d</string>
 
 </resources>

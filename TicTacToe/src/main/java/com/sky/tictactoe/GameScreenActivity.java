@@ -1,5 +1,7 @@
 package com.sky.tictactoe;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.app.Activity;
@@ -171,13 +173,13 @@ public class GameScreenActivity extends Activity {
                     && (gameGrid[temp[2]][temp[3]] != null && gameGrid[temp[2]][temp[3]])
                     && (gameGrid[temp[4]][temp[5]] != null && gameGrid[temp[4]][temp[5]])){
                 playerOneScore.setText(Integer.toString(++mPlayerOneScore));
-                gameReset();
+                choiceDialog();
                 return true;
             } else if((gameGrid[temp[0]][temp[1]] != null && !(gameGrid[temp[0]][temp[1]]))
                     && (gameGrid[temp[2]][temp[3]] != null && !(gameGrid[temp[2]][temp[3]]))
                     && (gameGrid[temp[4]][temp[5]] != null && !(gameGrid[temp[4]][temp[5]]))){
                 playerTwoScore.setText(Integer.toString(++mPlayerTwoScore));
-                gameReset();
+                choiceDialog();
                 return true;
             }
         }
@@ -285,6 +287,51 @@ public class GameScreenActivity extends Activity {
             }
         }
         return true;
+    }
+
+    private void choiceDialog(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        // set title
+        alertDialogBuilder.setTitle(R.string.choice_title);
+
+        // set dialog message
+        alertDialogBuilder
+            .setMessage(R.string.choice_message)
+            .setCancelable(false)
+            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,int id) {
+                    gameReset();
+                }
+            }).setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,int id) {
+                    finalScoreDialog();
+                }
+        });
+
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        alertDialog.show();
+    }
+
+    private void finalScoreDialog(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        // set title
+        alertDialogBuilder.setTitle(R.string.final_score_title);
+
+        // set dialog message
+        alertDialogBuilder
+            .setMessage(getString(R.string.final_score_message, mPlayerOneScore, mPlayerTwoScore))
+            .setCancelable(false)
+            .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                public void onClick(DialogInterface dialog,int id) {
+                    finish();
+                }
+            });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        alertDialog.show();
     }
 
     /**
